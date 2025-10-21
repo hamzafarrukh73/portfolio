@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+    /* --*: initial; */
+    /* --color-*: initial; */
+    /* --text-*: initial; */
+
+    /* --spacing: 0.25rem; */
+}
+
+:root {
+    /* --ui-bg: var(--color-white);
+    
+    --ui-primary: var(--ui-color-primary-600);
+    --ui-secondary: var(--ui-color-secondary-400);
+
+    --ui-success: var(--ui-color-success-500);
+    --ui-info: var(--ui-color-info-500);
+    --ui-warning: var(--ui-color-warning-500);
+    --ui-error: var(--ui-color-error); */
+}
+
+.dark {
+    /* --ui-bg: var(--color-black);
+
+    --ui-primary: var(--ui-color-primary-600);
+    --ui-secondary: var(--ui-color-secondary-500);
+
+    --ui-success: var(--ui-color-success-400);
+    --ui-info: var(--ui-color-info-400);
+    --ui-warning: var(--ui-color-warning-400);
+    --ui-error: var(--ui-color-error-400); */
+}
+
+.hidden {
+    display: none !important;
+    width: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0%;
+    padding: 0%;
+    overflow: hidden;
+    /* font-family: var(--font-family-sans-serif); */
+    @apply antialiased text-default bg-default scheme-dark dark:scheme-light;
+}
+
+#__nuxt {
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0%;
+    padding: 0%;
+    /* overflow: auto; */
+    background-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6, p, b, span, td, .btn, label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+p, label {
+    font-size: 0.8rem;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color-neutral-500);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-neutral-800);
+}
+
+@media (max-width: 900px)  {
+    .layout {
+        grid-template-columns: 100% !important;
+        grid-template-areas: 
+            "topbar"
+            "page-content" !important;
+    }
+    .sidebar {
+        width: 100%;
+        height: 90%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+    }
+    .topbar-center {
+        width: 60%;
+        height: 10vh;
+        padding: 0.7rem;
+        display: flex;
+        position: fixed;
+        top: 0;
+        left:0;
+        z-index: 100;
+    }
+    .container-searchbar {
+        flex-grow: 1 !important;
+    }
+}

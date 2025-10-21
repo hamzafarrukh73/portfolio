@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header m-0">
+        <div class="row row-cols-2 justify-content-between">
+            <div class="d-block px-1 w-25">
+                <h3 class="">Admin Panel</h3>
+            </div>
+            <div class="d-flex w-50 justify-content-end gap-2">
+                <button class="btn btn-sm btn-success text-truncate w-25" onclick="openAddUserModal()">Add User</button>
+                <button class="btn btn-sm btn-success text-truncate w-25" onclick="openEditInvoiceModal()">Invoice</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-body" style="overflow:auto">
+        <form class="no-text-wrap w-100" id="searchUsersForm">
+            <div class="input-group">
+                <input type="search" class="form-control form-control-sm text-truncate" name="search" id="searchUsers" placeholder="Search User">
+                <button class="btn btn-sm btn-success text-truncate" type="submit" value="Search" id="searchButton">Search</button>
+            </div>
+        </form>
+        <hr>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <!-- <th>ID</th> -->
+                        <th >Name</th>
+                        <th class="text-center w-25">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTable">
+                    <!-- Items populated via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Add User Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add User</h5>
+                <button type="button" class="btn-close" data-bs-theme="dark" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body d-flex flex-column justify-content-between">
+                <form id="addUserForm">
+                    <div class="row row-cols-1 h-100">
+                        <div>
+                            <label for="addUserName" class="">Name<span class="d-none" id="invalidProductName">Invalid Name</span></label>
+                            <input type="text" class="form-control form-control-sm" id="addUserName" placeholder="Enter New Name" required>
+                        </div>
+                        <div>
+                            <label for="addUserPassword">New Password</label>
+                            <input type="password" class="form-control form-control-sm" id="addUserPassword" placeholder="Enter Password">
+                        </div>
+                        <div>
+                            <label for="addUserConfirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control form-control-sm" id="addUserConfirmPassword" placeholder="Confirm Password">
+                        </div>
+
+                        <h5 class="">Permissions</h5>
+                        <div class="row row-cols-2 px-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="addUserDashboard" checked>
+                                <label class="form-check-label" for="addUserDashboard">Dashboard</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="addUserProducts">
+                                <label class="form-check-label" for="addUserProducts">Products</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="addUserInventory">
+                                <label class="form-check-label" for="addUserInventory">Inventory</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="addUserCheckout" checked>
+                                <label class="form-check-label" for="addUserCheckout">Checkout</label>
+                            </div> 
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="addUserHistory">
+                                <label class="form-check-label" for="addUserHistory">History</label>
+                            </div>
+                        </div>                 
+                    </div>
+                    <hr>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success justify-content-end">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit User Modal -->
+<div class="modal fade" id="editUserModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Product</h5>
+                <button type="button" class="btn-close" data-bs-theme="dark" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="height: 75vh; overflow: hidden;">
+                <form id="editUserForm" style="height: 80%;">
+                    <div class="row row-cols-1 h-100">
+                        <input type="hidden" id="editUserId">
+                        <div>
+                            <label for="editUserName" class="">Name</label>
+                            <input type="text" class="form-control form-control-sm" id="editUserName" placeholder="Enter New Name" required>
+                        </div>
+                        <div>
+                            <label for="editUserPassword">New Password</label>
+                            <input type="password" class="form-control form-control-sm" id="editUserPassword" placeholder="Enter Password">
+                        </div>
+                        <div>
+                            <label for="editUserConfirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control form-control-sm" id="editUserConfirmPassword" placeholder="Confirm Password">
+                        </div>
+
+                        <h5 class="">Permissions</h5>
+                        <div class="row row-cols-2 px-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="editUserDashboard">
+                                <label class="form-check-label" for="editUserDashboard">Dashboard</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="editUserProducts">
+                                <label class="form-check-label" for="editUserProducts">Products</label>
+                            </div>
+                             <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="editUserInventory">
+                                <label class="form-check-label" for="editUserInventory">Inventory</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="editUserCheckout">
+                                <label class="form-check-label" for="editUserCheckout">Checkout</label>
+                            </div> 
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="editUserHistory">
+                                <label class="form-check-label" for="editUserHistory">History</label>
+                            </div>
+                        </div>                 
+                    </div>
+                    <hr>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success justify-content-end">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Invoice Modal -->
+<div class="modal fade" id="editInvoiceModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Invoice</h5>
+                <button type="button" class="btn-close" data-bs-theme="dark" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body d-flex flex-column justify-content-between">
+                <form id="editInvoiceForm">
+                    <div class="row row-cols-2 h-100">
+                        <div class="col-6 d-flex flex-column gap-2 h-100" style="overflow: auto;">
+                            <input type="hidden" id="editProductId">
+                            <div>
+                                <label for="editInvoiceAddress" class="">Address <span class="d-none" id="invalidProductName">Invalid Name</span></label>
+                                <input type="text" class="form-control form-control-sm" id="editInvoiceAddress" placeholder="Enter Address" required>
+                            </div>
+                            <div>
+                                <label for="editInvoiceContact1">Contact No. 1</label>
+                                <input type="text" class="form-control form-control-sm" id="editInvoiceContact1" placeholder="Enter Contact" required>
+                            </div>
+                            <div>
+                                <label for="editInvoiceContact2">Contact No. 2</label>
+                                <input type="text" class="form-control form-control-sm" id="editInvoiceContact2" placeholder="Enter Contact" required>
+                            </div>
+                            <div>
+                                <label for="editInvoiceImage">Logo</label>
+                                <input type="file" class="form-control form-control-sm" id="editInvoiceImage" accept="image/*">
+                            </div>
+                        </div>
+                        <!-- <div class="col-1 border-end border-light">
+
+                        </div> -->
+                        <div class="col-6 h-100">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="text-center text-truncate">Logo</h3>
+                                </div>
+                                <div class="card-body" style="height: 80%;">
+                                    <div class="d-flex justify-content-center h-100">
+                                        <p class="d-none" id="editInvoiceOriginalImage"></p>
+                                        <img src="static/img/no_preview.png" alt="" class="img-fluid rounded" id="editInvoicePreview">
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success justify-content-end">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "utilities/confirm_delete.html" %}
+{% endblock %}
+
+{% block JS %}
+<script src="static/js/admin.js"></script>
+<!-- <script src="static/js/categories.js"></script> -->
+{% endblock %}

@@ -1,0 +1,79 @@
+<!-- Add Product Modal -->
+<div class="modal fade" id="addProductModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row row-cols-2 w-100 justify-content-between align-items-center">
+                    <div>
+                        <h3 class="modal-title">Add Product</h3>
+                    </div>
+                    <div class="d-flex w-50 justify-content-end align-items-center">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row row-cols-2 h-100 justify-content-between">
+                    <div class="d-flex">
+                        <form class="flex-grow-1" id="addProductForm">
+
+                            <div>
+                                <label for="productName">Name</label>
+                                <input type="text" class="form-control form-control-sm" id="productName"
+                                    placeholder="Enter Product Name" required>
+                            </div>
+                            <div>
+                                <label for="productPrice">Sale Price</label>
+                                <input type="number" class="form-control form-control-sm" id="productPrice"
+                                    placeholder="Enter Price" min="0" step="1" required>
+                            </div>
+                            <!-- <div>
+                                <label for="productStock">Initial Stock</label>
+                                <input type="number" step="1" class="form-control form-control-sm" min="0"
+                                    id="productStock" placeholder="Enter Stock (Optional)">
+                            </div> -->
+                            <div>
+                                <label for="productCategory">Category</label>
+                                <select class="form-select form-select-sm" id="productCategory" required>
+                                    <option value="">Select Category</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="productImage">Image</label>
+                                <input type="file" class="form-control form-control-sm" id="productImage"
+                                    accept="image/*">
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="card" style="height: 50vh; width: 50vh;">
+                            <div class="card-header">
+                                <h3 class="text-center">Preview</h3>
+                            </div>
+                            <div class="card-body">
+                                <img src="static/img/no_preview.png" alt="" id="addProductPreview">
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6>Price: </h6>
+                                    <div class="d-flex w-50 gap-1 justify-content-end align-items-center">
+                                        <button class="btn btn-sm btn-success" style="width: 40%">E</button>
+                                        <button class="btn btn-sm btn-danger" style="width: 40%">X</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="justify-content-end">
+                    <button class="btn btn-success" id="confirmAddProduct">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <title>POS</title>
+    <link href="static/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/main.css" rel="stylesheet">
+    {% block head %}
+    
+    {% endblock head %}
+  </head>
+  <body>
+    <div class="d-flex h-100 gap-3">
+      <div class="d-flex flex-column border-end" style="width: 15%;">
+        {% include "sidebar.html" %}
+      </div>
+      <div class="d-flex flex-column" style="width: 85%;">
+        {% block body %} 
+              
+        {% endblock body %}
+      </div>
+    </div>
+    {% block JS %} 
+        
+    {% endblock JS %}
+    <script src="static/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="static/js/main.js"></script>
+  </body>
+</html>

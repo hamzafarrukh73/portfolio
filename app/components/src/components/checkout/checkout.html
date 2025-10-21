@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link href="static/css/invoice.css" rel="stylesheet">
+{% endblock head %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header">
+        <div class="row row-cols-2 justify-content-between align-items-center">
+            <div>
+                <h3>Checkout</h3>
+            </div>
+            <div class="d-flex w-50 gap-2 justify-content-end align-items-center">
+                <!-- <button class="btn btn-sm btn-success w-25" onclick="openAddProductModal()">Add Product</button>
+                <button class="btn btn-sm btn-success w-25" onclick="openCategoriesListModal()">Category List</button> -->
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row row-cols-2 h-100 justify-content-between">
+            
+            <!-- Left Side -->
+            <div class="h-100 col-6" style="overflow-y: auto;">
+                <div class="d-flex flex-row gap-2" id="searchProductBars">
+                    <div class="input-group">
+                        <input type="search" class="form-control form-control-sm" name="search" id="searchProducts"
+                            placeholder="Search Product">
+                        <!-- <button class="btn btn-sm btn-success" type="submit" value="Search" id="searchButton">Search</button> -->
+                    </div>
+                    <div>
+                        <button class="btn btn-sm btn-outline-success" onclick="clearProductSearch()">Clear Filters</button>
+                    </div>
+                </div>
+                
+                <hr>        
+                <div class="row row-cols-2 g-3" id="productsContainer" style="overflow: auto;">
+                    <!-- Products populated via JavaScript -->     
+                </div>
+            </div>
+            <!-- Right Side -->
+            <div class="card h-100 col-5">
+                <div class="card-header px-3">
+                    <div class="">
+                        <h4>Current Order</h4>
+                    </div>
+                </div>
+                <div class="card-body row row-col-1 justify-content-between" style="overflow: auto;">
+                    <div class="">
+                        <div class="input-group gap-3" id="orderTypeForm">
+                            <select class="form-select form-select-sm" id="orderType" required>
+                                <option value="" disabled hidden>Choose order type</option>
+                                <option value="Takeout">Takeout</option>
+                                <option value="Dine in">Dine in</option>
+                                <option value="Delivery">Delivery</option>
+                            </select>
+                            <input type="number" class="form-control form-control-sm" id="tableNumber" placeholder="0" min="1" max="10" step="1" disabled>
+                        </div>
+                    </div>
+                    <hr>
+                    <div id="orderProducts" style="overflow: auto; height: 40%">
+                        <!-- Order items will be populated here -->
+                        <p class="text-muted">No items added yet</p>
+                    </div>
+
+                    <hr>
+                    <div class="">
+                        <label class="form-label">Discount</label>
+                        <div class="input-group gap-3">
+                            <select class="form-select form-select-sm" id="discountType">
+                                <option value="">None</option>
+                                <option value="percent">Percentage (%)</option>
+                                <option value="fixed">Fixed Amount</option>
+                            </select>                         
+                            <input type="number" class="form-control form-control-sm" id="discountValue" placeholder="0" step="1" min="0" disabled>
+                        </div>
+                    </div>
+
+                    <!-- Update total display -->
+                    <hr>
+                    <div class="">
+                        <div class="d-flex justify-content-between">
+                            <span>Total:</span>
+                            <span id="orderSubtotal">0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Discount:</span>
+                            <span id="orderDiscount">0.00</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6>Grand Total: <span id="orderTotal">0.00</span></h6>
+                        <div>
+                            <!-- <button class="btn btn-danger me-2" onclick="clearOrder()">Clear</button> -->
+                            <button class="btn btn-sm btn-success" onclick="saveOrder()">Save & Print</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "utilities/invoice.html" %}
+
+{% endblock %}
+
+{% block JS %}
+<script src="static/js/checkout.js"></script>
+<script src="static/js/invoice.js"></script>
+{% endblock %}
