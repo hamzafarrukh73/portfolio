@@ -28,38 +28,33 @@ const sidebarClassList = computed(() => {
 
 <style scoped>
 .layout {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-rows: 10% 90%;
-    grid-template-columns: auto;
     grid-template-areas: 
         "topbar"
         "page-content";
     box-sizing: border-box;
+    /* gap: 1.5rem; */
 }
-.layout-mobile {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-areas: 
-        "topbar"
-        "page-content";
+.topbar, .page-content {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    padding-inline: 3rem;
+    display: flex;
+    box-sizing: border-box;
+    place-content: center;
+    gap: 0.5rem;
 }
 .topbar {
     grid-area: topbar;
-    padding: 0.7rem;
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-}
-.sidebar {
-    grid-area: sidebar;    
-    padding: 1.5rem;
-    padding-inline: 0.7rem;
 }
 .page-content {
     grid-area: page-content;
-    padding: 1.5rem;
-    box-sizing: border-box;
-}
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+} 
 </style>
