@@ -1,4 +1,10 @@
 <script setup>
+const items = [
+    { label: 'Coding' },
+    { label: 'Content Creation' },
+    { label: 'Database' },
+]
+const value = ref(items[0])
 const skills = [
     { name: "HTML" , icon: "i-skill-icons-html" },
     { name: "CSS" , icon: "i-skill-icons-css" },
@@ -12,20 +18,34 @@ const skills = [
 </script>
 
 <template>
-    <div class="container-skills">
-            <h3 class="font-semibold text-center">Skills & Technologies</h3>
-            <div class="flex flex-rpw flex-wrap gap-3 my-3 place-content-center overflow-x-auto w-full">
-                <UButton :label="skill.name" :icon="skill.icon" class="flex-col flex-shrink-0" color="neutral" variant="ghost" size="xl" v-for="skill in skills" :key="skill" />
+    <div class="container-main flex flex-col gap-3">
+        <UCard class="rounded">
+            <template #header>
+                <div class="flex justify-between w-full">
+                    <h2 class="font-semiboldtext-center ">Skills</h2>
+                    <USelectMenu v-model="value" :items="items" class="w-2/10" />
+                </div>
+            </template>
+        
+        
+        <div class="flex flex-row flex-wrap place-content-center p-2 h-full w-full overflow-auto">
+            <div class="flex flex-col md:flex-row justify-start gap-5 place-items-center basis-1/2 md:basis-1/3 p-3" v-for="skill in skills" :key="skill">
+                <UIcon :name="skill.icon" class="p-5 size-16"></UIcon>
+                <h4 class="text-center">{{ skill.name }}</h4>
             </div>
+            <!-- <UButton :label="skill.name" :icon="skill.icon" class="flex flex-row h-3/10 w-3/10 flex-shrink-0" color="neutral" variant="ghost" size="xl" v-for="skill in skills" :key="skill" /> -->
         </div>
+        </UCard>
+    </div>
 </template>
 
 <style scoped>
-.container-skills {
+.container-main {
+    width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    box-sizing: border-box;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    overflow: auto;
 }
 </style>

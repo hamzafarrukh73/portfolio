@@ -13,13 +13,17 @@ const navitems = [
         label: 'Home',
         to: '/'
     },
-    {
-        label: 'Skills',
-        to: '/skills'
-    },
+    // {
+    //     label: 'About',
+    //     to: '/about'
+    // },
     {
         label: 'Projects',
         to: '/projects'
+    },
+    {
+        label: 'Contact',
+        to: '/contact'
     },
     
 ]
@@ -30,7 +34,7 @@ const navitems = [
         <h3 class="font-bold">Portfolio</h3>
     </div>
     <div class="topbar-center">
-        <UButton :label="items.label" :to="items.to" color="neutral" variant="ghost" v-for="items in navitems" :key="items"></UButton>
+        <UButton :label="items.label" :to="items.to" color="neutral" variant="link" active-variant="soft" v-for="items in navitems" :key="items"></UButton>
     </div>
 </template>
 
