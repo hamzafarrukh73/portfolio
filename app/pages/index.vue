@@ -13,14 +13,18 @@ const skills = [
     { name: 'Django REST Framework' },
     { name: 'SQL' },
     { name: 'Git' },
+    { name: 'Github' },
 ];
 </script>
 
 <template>
-    <div class="container-main flex flex-col-reverse md:flex-row-reverse md:gap-20">
+    <div class="container-main flex flex-col md:flex-row gap-5 md:gap-20">
+        <div class="h-fit w-4/10 md:w-3/10 place-content-center place-items-center aspect-square">
+            <img src="~assets/img/profile.png" alt="" class="h-full aspect-square object-contain rounded-full border-3 border-primary">
+        </div>
         <div class="flex flex-col gap-5 h-fit w-full md:w-5/10 place-content-center md:place-content-start">
             <h1 class="font-bold text-center md:text-start">Hamza Farrukh</h1>
-            <h4 class="font-muted text-pretty w-full text-center md:text-start">
+            <h4 class="text-muted text-pretty w-full text-center md:text-start">
                 Full Stack Developer
             </h4>
             
@@ -29,15 +33,13 @@ const skills = [
             </div>
 
             <div class="flex flex-col md:flex-row place-items-center md:place-content-start gap-5">
-                <div class="flex gap-3">
-                    <UButton label="View Projects" to="/projects" color="primary" size="lg" />
-                    <UButton label="Download Resume" to="/files/hamza_farrukh_resume.pdf" target="_blank" color="primary" variant="outline" size="lg" />
+                <div class="flex flex-row gap-3 ">
+                    <UButton label="View Projects" to="/projects" color="primary" size="xl" />
+                    <UButton label="Download Resume" to="/files/hamza_farrukh_resume.pdf" target="_blank" color="primary" variant="outline" size="xl" />
                 </div>
             </div>
         </div>
-        <div class="h-fit w-4/10 md:w-3/10 place-content-center place-items-center aspect-square">
-            <img src="~assets/img/profile.png" alt="" class="h-full aspect-square object-contain rounded-full border-2 border-primary">
-        </div>
+        
     </div>
 </template>
 

@@ -20,7 +20,9 @@
     --ui-warning: var(--ui-color-warning-500);
     --ui-error: var(--ui-color-error); */
 
+    --ui-header-height: 10vh;
     font-size: clamp(0.75rem, 0.5rem + 0.5vw, 1.5rem);
+    overflow-x: hidden;
 }
 
 .dark {
@@ -41,19 +43,18 @@
 }
 
 body {
-    display: flex;
-    box-sizing: border-box;
-    overflow: auto;
+   
+    
     /* font-family: var(--font-family-sans-serif); */
-    @apply antialiased text-default bg-black scheme-dark dark:scheme-light;
+    /* @apply antialiased text-default bg-black scheme-dark dark:scheme-light; */
 }
 
-#__nuxt {
+/* #__nuxt {
     display: flex;
     box-sizing: border-box;
     overflow: auto;
     background-color: transparent;
-}
+} */
 /* h1, h2, h3, h4, h5, h6, p, b, span, td, .btn, label {
     overflow: hidden;
     white-space: nowrap;
@@ -91,6 +92,7 @@ img {
     width: 0.5rem;
     height: 0.5rem;
     background-color: transparent;
+    z-index: 100;
 }
 
 ::-webkit-scrollbar-track {
