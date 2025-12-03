@@ -1,7 +1,7 @@
 <script setup>
-// definePageMeta({
-//     layout: 'empty'
-// })
+definePageMeta({
+    layout: 'dashboard'
+})
 
 const skills = [
     { name: 'HTML' },
@@ -34,7 +34,7 @@ const skills = [
 
             <div class="flex flex-col md:flex-row place-items-center md:place-content-start gap-5">
                 <div class="flex flex-row gap-3 ">
-                    <UButton label="View Projects" to="/projects" color="primary" size="xl" />
+                    <UButton label="View Projects" to="https://github.com/hamzafarrukh73?tab=repositories" target="_blank" color="primary" size="xl" />
                     <UButton label="Download Resume" to="/files/hamza_farrukh_resume.pdf" target="_blank" color="primary" variant="outline" size="xl" />
                 </div>
             </div>

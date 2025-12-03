@@ -1,13 +1,13 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@theme {
-    /* --*: initial; */
-    /* --color-*: initial; */
-    /* --text-*: initial; */
+/* @theme {
+    --*: initial;
+    --color-*: initial;
+    --text-*: initial;
 
-    /* --spacing: 0.25rem; */
-}
+    --spacing: 0.25rem;
+} */
 
 :root {
     /* --ui-bg: var(--color-white);
@@ -22,11 +22,11 @@
 
     --ui-header-height: 10vh;
     font-size: clamp(0.75rem, 0.5rem + 0.5vw, 1.5rem);
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-.dark {
-    /* --ui-bg: var(--color-black);
+/* .dark {
+    --ui-bg: var(--color-black);
 
     --ui-primary: var(--ui-color-primary-600);
     --ui-secondary: var(--ui-color-secondary-500);
@@ -34,20 +34,15 @@
     --ui-success: var(--ui-color-success-400);
     --ui-info: var(--ui-color-info-400);
     --ui-warning: var(--ui-color-warning-400);
-    --ui-error: var(--ui-color-error-400); */
-}
+    --ui-error: var(--ui-color-error-400);
+} */
 
-.hidden {
-    display: none !important;
-    width: 0;
-}
+/* body {
 
-body {
-   
-    
-    /* font-family: var(--font-family-sans-serif); */
-    /* @apply antialiased text-default bg-black scheme-dark dark:scheme-light; */
-}
+
+    font-family: var(--font-family-sans-serif);
+    @apply antialiased text-default bg-black scheme-dark dark:scheme-light;
+} */
 
 /* #__nuxt {
     display: flex;
@@ -64,22 +59,30 @@ body {
 h1 {
     @apply text-5xl;
 }
+
 h2 {
     @apply text-4xl;
 }
+
 h3 {
     @apply text-3xl;
 }
+
 h4 {
     @apply text-2xl;
 }
+
 h5 {
     @apply text-xl;
 }
+
 h6 {
     @apply text-lg;
 }
-p, label, span {
+
+p,
+label,
+span {
     @apply text-base;
 }
 
@@ -102,12 +105,3 @@ img {
 ::-webkit-scrollbar-thumb {
     background-color: var(--color-neutral-800);
 }
-
-/* @media (max-width: 900px)  {
-    .layout {
-        grid-template-columns: 100% !important;
-        grid-template-areas: 
-            "topbar"
-            "page-content" !important;
-    }
-} */
