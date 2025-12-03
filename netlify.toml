@@ -1,5 +1,5 @@
 # example netlify.toml
 [build]
-  command = "npm run build"
+  command = "rm -rf .nuxt node_modules/.cache/nuxt && pnpm run build"
   functions = "netlify/functions-internal"
   publish = "dist"
