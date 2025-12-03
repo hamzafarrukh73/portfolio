@@ -16,10 +16,9 @@ export default defineNuxtConfig({
     },
   },
   app: {
-    baseURL: './',
+    // baseURL: './',
   },
   nitro: {
     preset: 'netlify',
-    baseURL: './',
   },
 })
