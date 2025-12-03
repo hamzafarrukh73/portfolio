@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt', '@nuxt/ui'],
   css: [
     '~/assets/css/main.css', 
-    '~/assets/css/buttons.css'
   ],
   imports: {
     dirs: ['stores']
