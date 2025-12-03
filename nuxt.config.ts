@@ -19,6 +19,6 @@ export default defineNuxtConfig({
     // baseURL: './',
   },
   nitro: {
-    preset: 'netlify-static',
+    preset: 'netlify',
   },
 })
