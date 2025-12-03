@@ -1,75 +1,39 @@
-# Nuxt Minimal Starter
+# Portfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is my personal portfolio website.
 
-## Setup
+## Features
 
-Make sure to install dependencies:
+- Responsive design
+- Showcases projects and skills
+- Contact form
 
-```bash
-# npm
-npm install
+## Getting Started
 
-# pnpm
-pnpm install
+1. Install dependencies:
 
-# yarn
-yarn install
+    ```
+    pnpm install
+    ```
 
-# bun
-bun install
-```
+2. Start the development server:
 
-## Development Server
+    ```
+    pnpm run dev
+    ```
 
-Start the development server on `http://localhost:3000`:
+3. Build for production:
 
-```bash
-# npm
-npm run dev
+    ```
+    pnpm run build
+    ```
 
-# pnpm
-pnpm dev
+## Technologies Used
 
-# yarn
-yarn dev
+- Nuxt.js
+- TypeScript
+- Styled Components
 
-# bun
-bun run dev
-```
+## License
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This project is licensed under the MIT License.
