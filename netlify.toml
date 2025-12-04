@@ -1,4 +1,4 @@
-# example netlify.toml
+# netlify.toml
 [build]
   command = "rm -rf .nuxt node_modules/.cache/nuxt && pnpm run build"
   publish = "dist"

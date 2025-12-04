@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['stores']
   },
-  ssr: false,
+  ssr: true,
   router: {
     options: {
       hashMode: false,
