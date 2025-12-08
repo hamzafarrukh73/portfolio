@@ -5,34 +5,12 @@ This is my personal portfolio website.
 ## Features
 
 - Responsive design
-- Showcases projects and skills
+- Showcases skills and resume
 - Contact form
 
-## Getting Started
-
-1. Install dependencies:
-
-    ```
-    pnpm install
-    ```
-
-2. Start the development server:
-
-    ```
-    pnpm run dev
-    ```
-
-3. Build for production:
-
-    ```
-    pnpm run build
-    ```
-
 ## Technologies Used
-
+- HTML, CSS
 - Nuxt.js
-- TypeScript
-- Styled Components
 
 ## License
 
